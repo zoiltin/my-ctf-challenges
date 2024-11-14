@@ -23,7 +23,21 @@ dump时会对username进行unicode解码，并作为键名序列化。
 
 tip: python进程终止时，supervisord会自动重启，可能需要几秒钟的时间。
 
-利用过程：
+## 非预期
+在处理查询结果时，如果用户不存在会直接return，不仅入except，导致文件夹保留。
+```python
+if result:
+    user = []
+    user.append({unicode_decode(username) : result[0]})
+    dumped = ujson.dumps(user)
+    # log(dumped)
+else:
+    return jsonify({"error" : "no such user"}), 400
+```
+
+此存储库中的docker环境已修复。
+
+# 利用过程
 * 插入用户`asd\uddddasd`
 * dump用户时报错创建目录
 * 写入udf.so并创建函数

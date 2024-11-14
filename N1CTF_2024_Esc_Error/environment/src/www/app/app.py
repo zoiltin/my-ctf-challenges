@@ -91,10 +91,10 @@ def dump():
         else:
             return jsonify({"error" : "no such user"}), 400
     except Exception as e:
-        os.rmdir(realpath)
         return jsonify({'error': str(e)}), 400
-    
-    os.rmdir(realpath)
+    finally:
+        os.rmdir(realpath)
+
     return dumped
 
 @app.route('/', methods=['GET'])
