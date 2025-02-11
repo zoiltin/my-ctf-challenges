@@ -1,0 +1,7 @@
+providers:
+  file:
+    filename: /app/.config/dynamic.yml
+
+entrypoints:
+  web:
+    address: ":80"

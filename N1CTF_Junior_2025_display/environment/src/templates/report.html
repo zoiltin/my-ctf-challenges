@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Report Form</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Report Issue</h1>
+    <form id="reportForm">
+        <div class="input-container">
+            <label for="text">Your Report</label>
+            <textarea id="text" name="text" placeholder="Enter the details of your report..." required></textarea>
+        </div>
+        <button type="submit" class="button" id="submitButton">Submit Report</button>
+    </form>
+
+    <div class="content-display" id="responseMessage"></div>
+</div>
+
+<script src="/static/report.js"></script>
+
+</body>
+</html>

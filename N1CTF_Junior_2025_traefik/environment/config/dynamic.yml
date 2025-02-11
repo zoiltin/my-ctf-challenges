@@ -1,0 +1,17 @@
+# Dynamic configuration
+
+http:
+  services:
+    proxy:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1:8080"
+  routers:
+    index:
+      rule: Path(`/public/index`)
+      entrypoints: [web]
+      service: proxy
+    upload:
+      rule: Path(`/public/upload`)
+      entrypoints: [web]
+      service: proxy
